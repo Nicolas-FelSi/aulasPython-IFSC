@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livro</title>
+</head>
+<body>
+    <h1>Detalhes do livro</h1>
+
+    <h2> ID: {{ livro.titulo }}</h2>
+    <h2> TÍTULO: {{ livro.titulo }}</h2>
+    <h2> PÁGIANS: {{ livro.numero_paginas }}</h2>
+    <h2> PREÇO: {{ livro.preco }}</h2>
+    <h2> DATA: {{ livro.data_publicacao }}</h2>
+    <h2> GÊNERO: {{ livro.genero }}</h2>
+    <h2> ESTOQUE: {{ livro.estoque }}</h2>
+
+    <form action="{% url 'Delete' livro.id%}" method="post">
+        {% csrf_token %}
+        <button>Deletar</button>
+    </form>
+
+</body>
+</html>
