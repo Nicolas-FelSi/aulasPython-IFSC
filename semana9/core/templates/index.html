@@ -27,7 +27,9 @@
                     <td>{{ l.title }}</td>
                     <td>R$ {{ l.price }}</td>
                     <td>
-                        <button class="btn btn-warning">Editar</button>
+                        <form action="{% url 'editar_livro_url' l.id %}">
+                            <button type="submit" class="btn btn-warning">Editar</button>
+                        </form>
                     </td>
                     <td>
                         <form action="{% url 'deletar_livro_url' l.id %}">

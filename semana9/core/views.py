@@ -19,6 +19,27 @@ def del_livro(request, pk):
     livro = Livro.objects.get(id=pk)
     livro.delete()
     return redirect('/')
+
+def edit_livro(request, pk):
+    
+    if request.method == 'GET':
+        livro = Livro.objects.get(id=pk)
+        context = {
+            "livro": livro
+        }
+
+        return render(request, 'edit_livro.html', context)
+    elif request.method == 'POST':
+        titulo = request.POST.get('titulo')
+        preco = request.POST.get('preco')
+
+        livro = Livro(
+            title = titulo,
+            price = preco,
+        )
+
+        livro.save()
+        return redirect('/')
     
 def cadastrar_livro(request):
     
