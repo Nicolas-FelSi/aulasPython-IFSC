@@ -6,16 +6,21 @@
     <title>Index</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css">
 </head>
-<body class="container bg-secondary-subtle fw-semibold">
+<body class="bg-secondary-subtle fw-semibold mx-4">
     <h1 class="text-center">Página inicial</h1>
 
     <div class="p-5 bg-white rounded-3 rounded shadow-sm">
+        <form action="{% url 'avaliar_textos_url' %}" class="d-flex justify-content-center">
+            <button type="submit" class="btn btn-primary w-100 text-uppercase fw-semibold">Avaliar texto</button>            
+        </form>
         <table class="table table-hover">
             <thead>
                 <tr>
                     <th scope="col">ID</th>
                     <th scope="col">Título</th>
                     <th scope="col">Preço</th>
+                    <th scope="col">Resumo</th>
+                    <th scope="col">Estrelas</th>
                     <th scope="col"></th>
                     <th scope="col"></th>
                 </tr>
@@ -25,7 +30,13 @@
                 <tr>
                     <td>{{ l.id }}</td>
                     <td>{{ l.title }}</td>
-                    <td>R$ {{ l.price }}</td>
+                    {% if l.price != None %}
+                        <td>R$ {{ l.price }}</td>
+                    {% else %}
+                        <td>Grátis</td>
+                    {% endif %}
+                    <td>{{ l.review_summary }}</td>
+                    <td>{{ l.review_score }}</td>
                     <td>
                         <form action="{% url 'editar_livro_url' l.id %}">
                             <button type="submit" class="btn btn-warning">Editar</button>
@@ -37,7 +48,6 @@
                         </form>
                     </td>
                 </tr>
-                <!-- <p><a href="{% url 'Livro' l.id %}"> {{ l.title }}</a></p> -->
             {% endfor %}
             </tbody>
         </table>
