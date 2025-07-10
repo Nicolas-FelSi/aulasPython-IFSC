@@ -9,7 +9,7 @@
 <body class="container bg-secondary-subtle fw-semibold d-flex flex-column align-items-center">
     <h1 class="text-center">Editar Livro</h1>
 
-    <form action="{% url 'editar_livro_url' %}" method="post" class="bg-white p-5 shadow-sm rounded rounded-1 w-50">
+    <form action="{% url 'editar_livro_url' livro.id %}" method="post" class="bg-white p-5 shadow-sm rounded rounded-1 w-50">
         {% csrf_token %}
         <div class="form-floating mb-3">
             <input
@@ -18,17 +18,18 @@
                 name="titulo"
                 id="titulo"
                 placeholder=""
+                value="{{ livro.title }}"
             />
             <label for="titulo">Título</label>
         </div>
         <div class="form-floating mb-3">
             <input
-                type="number"
-                step="0.01"
+                type="text"
                 class="form-control"
                 name="preco"
                 id="preco"
                 placeholder=""
+                value="{{ livro.price }}"
             />
             <label for="preco">Preço</label>
         </div>
