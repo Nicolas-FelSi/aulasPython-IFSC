@@ -33,6 +33,9 @@ def edit_livro(request, pk):
         titulo = request.POST.get('titulo')
         preco = request.POST.get('preco')
 
+        if "," in preco:
+            preco = preco.replace(",", ".")
+
         livro = Livro(
             title = titulo,
             price = preco,
