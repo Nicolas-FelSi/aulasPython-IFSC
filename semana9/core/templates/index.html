@@ -10,6 +10,20 @@
     <h1 class="text-center">Página inicial</h1>
 
     <div class="p-5 bg-white rounded-3 rounded shadow-sm">
+        <div class="d-flex gap-2">
+            <form action="{% url 'cadastrar_livro_url' %}">
+                <button type="submit" class="btn btn-primary text-uppercase fw-semibold">Cadastrar Livro</button>
+            </form>
+            <form action="{% url 'graf_url' %}">
+                <button type="submit" class="btn btn-info text-uppercase fw-semibold">Gerar gráfico</button>
+            </form>
+            <form action="{% url 'rotular_url' %}">
+                <button type="submit" class="btn btn-info text-uppercase fw-semibold">Rotular</button>
+            </form>
+            <form action="{% url 'sair_url' %}">
+                <button type="submit" class="btn btn-danger text-uppercase fw-semibold">Logout</button>
+            </form>
+        </div>
         <table class="table table-hover">
             <thead>
                 <tr>
@@ -48,13 +62,7 @@
             {% endfor %}
             </tbody>
         </table>
-        <form action="{% url 'cadastrar_livro_url' %}" class="d-flex justify-content-center">
-            <button type="submit" class="btn btn-primary w-100 text-uppercase fw-semibold">novo</button>            
-        </form>
     </div>
-    <form action="{% url 'sair_url' %}" class="mt-2">
-        <button type="submit" class="btn btn-danger text-uppercase fw-semibold">Sair</button>            
-    </form>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
 </body>

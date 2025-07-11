@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import index, livro, cadastrar_livro, del_livro, edit_livro, cad_user, entrar, sair
+from .views import *
 
 urlpatterns = [
     path('', index),
@@ -9,5 +9,7 @@ urlpatterns = [
     path('cad_livro', cadastrar_livro, name='cadastrar_livro_url'),
     path('cad_user', cad_user, name='cad_user_url'),
     path('entrar', entrar, name='entrar_url'),
-    path('sair', sair, name='sair_url')
+    path('sair', sair, name='sair_url'),
+    path('graf', graf, name='graf_url'),
+    path('rotular', rotular, name='rotular_url')
 ]
