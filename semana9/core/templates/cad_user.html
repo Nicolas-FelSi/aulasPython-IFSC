@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Usuário</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css">
+</head>
+<body class="container bg-secondary-subtle fw-semibold d-flex flex-column align-items-center">
+    <h1 class="text-center">Cadastro de Usuário</h1>
+
+    <form action="{% url 'cad_user_url' %}" method="post" class="bg-white p-5 shadow-sm rounded rounded-1 w-50">
+        {% csrf_token %}
+        <div class="form-floating mb-3">
+            <input
+                type="text"
+                class="form-control"
+                name="username"
+                id="username"
+                placeholder=""
+            />
+            <label for="username">Nome de usuário</label>
+        </div>
+        <div class="form-floating mb-3">
+            <input
+                type="email"
+                class="form-control"
+                name="email"
+                id="email"
+                placeholder=""
+            />
+            <label for="email">E-mail</label>
+        </div>
+        <div class="form-floating mb-3">
+            <input
+                type="password"
+                class="form-control"
+                name="password"
+                id="password"
+                placeholder=""
+            />
+            <label for="password">Senha</label>
+        </div>
+        
+        <button type="submit" class="btn btn-primary w-100">Cadastrar</button>
+    </form>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
